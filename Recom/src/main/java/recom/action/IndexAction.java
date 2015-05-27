@@ -51,6 +51,9 @@ public class IndexAction {
 			percentage = 0;
 		}
 		return "index.jsp";
+		/**
+		 * 衞藤
+		 */
 	}
 
 }

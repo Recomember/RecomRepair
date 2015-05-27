@@ -1,0 +1,7 @@
+Charset=UTF-8
+ConnectionName=jdbc.dicon
+ConnectionUrl=jdbc\:mysql\://localhost\:3306/recom
+DriverClass=com.mysql.jdbc.Driver
+Pass=hahahaa
+User=root
+eclipse.preferences.version=1

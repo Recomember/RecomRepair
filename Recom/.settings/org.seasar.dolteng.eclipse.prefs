@@ -1,0 +1,9 @@
+DaoType=S2JDBC
+DefaultResourcePath=/Recom/src/main/resources
+DefaultRootPackage=recom
+DefaultSrcPath=/Recom/src/main/java
+ServletPath=/Recom
+ViewType=SA-Struts
+WebContentsRoot=src/main/webapp/
+eclipse.preferences.version=1
+prefs.children=s2jdbc.dicon,jdbc.dicon,

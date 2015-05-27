@@ -55,7 +55,7 @@ public class IndexAction {
 		 * 衞藤
 		 */
 		/**
-		 *
+		 * リトライ
 		 */
 	}
 

@@ -15,9 +15,13 @@
  */
 package recom.action;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import javax.annotation.Resource;
 
 import org.seasar.struts.annotation.Execute;
+import org.seasar.struts.util.ResponseUtil;
 
 import recom.service.IndexService;
 
@@ -59,6 +63,38 @@ public class IndexAction {
 		/**
 		 * リトライ
 		 */
+	}
+	
+	/**
+	 * JSON形式でレスポンスを返す
+	 */
+	@Execute(validator = false)
+	public String jasonIndex() {
+	
+		 Map<String, Object> responseData = new HashMap<String, Object>();
+		 
+		 //マップに登録者数を格納
+		 enrollment = indexService.getEnrollment();
+		 responseData.put("Enrollment", enrollment);
+		 
+		 //マップに話したことがある人の数を格納
+		 talked = indexService.getTalked();
+		 responseData.put("Talked", talked);
+		 
+		 //マップにまだ話したことがない人の数を格納
+		 leftOver = enrollment - talked;
+		 responseData.put("LeftOver", leftOver);
+		 
+		 //マップに会話率を格納
+		 percentage = talked * 100 / enrollment;
+		 responseData.put("Percentage", percentage);
+
+		// JSONICライブラリ（http://jsonic.sourceforge.jp/）によりJSON形式へ変換
+		String jsonText = JSON.encode(responseData);
+		
+		 ResponseUtil.write(jsonText, "application/json");
+		
+		return null;
 	}
 
 }

@@ -38,18 +38,20 @@ public class IndexAction {
 	 */
 	@Execute(validator = false)
 	public String index() {
+
+		enrollment = indexService.getEnrollment();
 		if (enrollment != 0) {
-			enrollment = indexService.getEnrollment();
 			talked = indexService.getTalked();
 			leftOver = enrollment - talked;
 			percentage = talked * 100 / enrollment;
-
 		} else {
 			enrollment = 0;
 			talked = 0;
 			leftOver = 0;
 			percentage = 0;
+
 		}
+
 		return "index.jsp";
 		/**
 		 * 衞藤

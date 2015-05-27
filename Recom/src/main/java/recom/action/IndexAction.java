@@ -21,31 +21,36 @@ import org.seasar.struts.annotation.Execute;
 
 import recom.service.IndexService;
 
-
 public class IndexAction {
 
 	public long enrollment;
 	public long talked;
 	public long percentage;
 	public long leftOver;
-	
+
 	@Resource
 	protected IndexService indexService;
-	
-	
+
 	/**
 	 * ダッシュボードに表示するためのデータを取得し格納するメソッド.
+	 *
 	 * @return
 	 */
-    @Execute(validator = false)
+	@Execute(validator = false)
 	public String index() {
-    	
-    	enrollment = indexService.getEnrollment();
-    	talked = indexService.getTalked();
-    	leftOver = enrollment - talked;
-    	percentage =talked*100 / enrollment ;
-    	
-        return "index.jsp";
+		if (enrollment != 0) {
+			enrollment = indexService.getEnrollment();
+			talked = indexService.getTalked();
+			leftOver = enrollment - talked;
+			percentage = talked * 100 / enrollment;
+
+		} else {
+			enrollment = 0;
+			talked = 0;
+			leftOver = 0;
+			percentage = 0;
+		}
+		return "index.jsp";
 	}
-    
+
 }

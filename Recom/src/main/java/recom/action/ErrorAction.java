@@ -16,5 +16,7 @@ public class ErrorAction {
 	public String index(){
 		return "error.jsp";
 	}
+	
+	//編集＠安藤
 
 }

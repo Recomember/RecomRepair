@@ -92,7 +92,8 @@ public class IndexAction {
 		// JSONICライブラリ（http://jsonic.sourceforge.jp/）によりJSON形式へ変換
 		String jsonText = JSON.encode(responseData);
 		
-		 ResponseUtil.write(jsonText, "application/json");
+		
+		ResponseUtil.write(jsonText, "application/json");
 		
 		return null;
 	}

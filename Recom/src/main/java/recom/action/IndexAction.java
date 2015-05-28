@@ -20,6 +20,8 @@ import java.util.Map;
 
 import javax.annotation.Resource;
 
+import net.arnx.jsonic.JSON;
+
 import org.seasar.struts.annotation.Execute;
 import org.seasar.struts.util.ResponseUtil;
 
